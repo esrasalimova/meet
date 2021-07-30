@@ -4,6 +4,11 @@ import CitySearch from '../CitySearch';
 import { mockData } from '../mock-data';
 import { extractLocations } from '../api';
 
+import { configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+configure ({ adapter: new Adapter() });
+
 describe('<CitySearch /> component', () => {
     let locations, CitySearchWrapper;
     beforeAll(() => {
@@ -25,9 +30,7 @@ describe('<CitySearch /> component', () => {
   });
 
   test('change state when text input changes', () => {
-    CitySearchWrapper.setState({
-      query: 'Munich'
-    });
+    CitySearchWrapper.setState({query: 'Munich'});
     const eventObject = { target: { value: 'Berlin' }};
     CitySearchWrapper.find('.city').simulate('change', eventObject);
     expect(CitySearchWrapper.state('query')).toBe('Berlin');
