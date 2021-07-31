@@ -5,6 +5,11 @@ import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberofEvents';
 
+import { configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+configure ({ adapter: new Adapter() });
+
 
 describe('<App /> component', () => {
   let AppWrapper;
