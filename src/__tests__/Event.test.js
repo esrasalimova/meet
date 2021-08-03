@@ -21,22 +21,22 @@ describe('<EventList /> component', () => {
   });
 
   test('render the event show more button', () => {
-    expect(createdEvent.find('.details-btn')).toHaveLength(1);
+    expect(createdEvent.find('.showMore')).toHaveLength(1);
   });
 
   test('show more button should be false on render', () => {
-    expect(createdEvent.state('showMore')).toBe(false);
+    expect(createdEvent.state('show')).toBe(false);
   });
 
   test('if showMore is false, simulates a click showing more details', () => {
-    const changeState = createdEvent.state({showMore: true});
-    createdEvent.find('.details-btn').simulate('click', changeState);
-    expect(createdEvent.state('showMore')).toBe(true);
+    const changeState = createdEvent.state({show: true});
+    createdEvent.find('.showMore').simulate('click', changeState);
+    expect(createdEvent.state('show')).toBe(true);
   });
 
   test('if showMore is true, simulates a click showing less details', () => {
-    const changeState = createdEvent.state({showMore: false});
-    createdEvent.find('.details-btn').simulate('click', changeState);
-    expect(createdEvent.state('showMore')).toBe(false);
+    const changeState = createdEvent.state({show: false});
+    createdEvent.find('.showLess').simulate('click', changeState);
+    expect(createdEvent.state('show')).toBe(false);
   });
 });
