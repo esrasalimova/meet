@@ -11,7 +11,7 @@ configure ({ adapter: new Adapter() });
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsWrapper;
     beforeAll(() => {
-      NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+      NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {}} eventNumber={32} />);
     });
     test('render input', () => {
       expect(NumberOfEventsWrapper.find('.eventNum')).toHaveLength(1);
