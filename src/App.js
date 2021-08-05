@@ -36,6 +36,14 @@ class App extends Component {
       });
     });
   }
+
+  updateEventCount = (eventCount) => {
+    const { locations} = this.state;
+    this.setState({
+      numberOfEvents: eventCount
+    });
+    this.updateEvents(locations, eventCount);
+  }
   
 
   render() {
