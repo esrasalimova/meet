@@ -69,6 +69,18 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
+  test('the amount of events shown changes when the input text changes', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    AppWrapper.instance().updateEventCount = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    NumberOfEventsWrapper.setState({ numberOfEvents: 5 });
+    const eventObject = { target: { value: 1 } };
+    NumberOfEventsWrapper.find(".eventNum").simulate("change", eventObject);
+    expect(NumberOfEventsWrapper.state("numberOfEvents")).toBe(1);
+    expect(AppWrapper.instance().updateEventCount).toHaveBeenCalledWith(1);
+    AppWrapper.unmount();
+  });
 
 
 });
