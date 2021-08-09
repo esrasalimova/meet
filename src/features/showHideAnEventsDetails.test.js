@@ -28,7 +28,7 @@ defineFeature(feature, test => {
       });
   
       then('the user should see a list of all the events without details', () => {
-        expect(EventWrapper.find(".eventDetails")).toHaveLength(0);
+        expect(EventWrapper.find(".details")).toHaveLength(0);
       });
     });
   
@@ -40,11 +40,11 @@ defineFeature(feature, test => {
       });
   
       when('the user clicked on expand/more details button on a specific event', () => {
-        EventWrapper.find(".ToggleButton").at(1).simulate("click");
+        EventWrapper.find(".showMore").simulate("click");
       });
   
       then('the user should see the details of this specific event', () => {
-        expect(EventWrapper.find(".eventDetails")).toHaveLength(2);
+        expect(EventWrapper.find(".details")).toHaveLength(1);
       });
     });
   
@@ -53,16 +53,16 @@ defineFeature(feature, test => {
         AppWrapper = mount(<App />);
         EventListWrapper = mount(<EventList events={mockData} />);
         EventWrapper = mount(<Event event={mockData[0]} />);
-        EventWrapper.find(".ToggleButton").at(1).simulate("click");
-        EventWrapper.find(".eventDetails");
+        EventWrapper.find(".showMore").simulate("click");
+        EventWrapper.find(".details");
       });
   
       when('the user clicks on the collapse/show less button', () => {
-        EventWrapper.find(".ToggleButton").at(1).simulate("click");
+        EventWrapper.find(".showLess").simulate("click");
       });
   
       then('the user should no longer see the event’s details', () => {
-        expect(EventWrapper.find(".eventDetails")).toHaveLength(0);
+        expect(EventWrapper.find(".details")).toHaveLength(0);
       });
     });
   
