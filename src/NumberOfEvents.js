@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
   state = {
@@ -30,7 +31,7 @@ class NumberOfEvents extends Component {
 
   render() {
     return (
-      <div className="NumberOfEvents">
+      <div className="NumberOfEvents"> 
         <p>Number of Events</p>
         <input
           type="number"
@@ -38,6 +39,7 @@ class NumberOfEvents extends Component {
           value={this.state.numberOfEvents}
           onChange={this.handleInputChanged}
         />
+        <ErrorAlert text={this.state.ErrorText} />
       </div>
     );
   }
