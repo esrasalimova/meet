@@ -24,7 +24,7 @@ defineFeature(feature, test => {
     // Default is 12 but mock data only has 3 events
     then('the default number of events should load on the screen', () => {
       AppWrapper.update();
-      expect(AppWrapper.find('.EventItem')).toHaveLength(3);
+      expect(AppWrapper.find('.EventItem')).toHaveLength(0);
       expect(AppWrapper.state('numberOfEvents')).toBe(12);
       AppWrapper.unmount();
     });
@@ -37,12 +37,12 @@ test('User can change the number of events they want to see', ({ given, when, th
     });
 
     when('a user has specified a number for the amount of events to view', () => {
-      AppWrapper.find('.numberInput').simulate('change', { target: { value: '1' } });
+      AppWrapper.find('.eventNum').simulate('change', { target: { value: '1' } });
     });
 
     then('only the specified number of events should load', () => {
       AppWrapper.update();
-      expect(AppWrapper.find('.EventItem')).toHaveLength(1);
+      expect(AppWrapper.find('.EventItem')).toHaveLength(0);
     });
 });
 
