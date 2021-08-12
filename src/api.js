@@ -35,7 +35,8 @@ import NProgress from "nprogress";
   }
     if (!navigator.onLine) {
       const data = localStorage.getItem("lastEvents");
-      return data?JSON.parse(events).events:[];;
+      NProgress.done();
+      return data?JSON.parse(data).events:[];;
     }
   const token = await getAccessToken();
 
