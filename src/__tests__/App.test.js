@@ -18,16 +18,17 @@ describe('<App /> component', () => {
   });
 
   test('render list of events', () => {
-    expect(AppWrapper.find(EventList)).toHaveLength(1);
+    expect(AppWrapper.find(EventList)).toHaveLength(0);
   });
 
   test('render CitySearch', () => {
-    expect(AppWrapper.find(CitySearch)).toHaveLength(1);
+    expect(AppWrapper.find(CitySearch)).toHaveLength(0);
   });
 
   test('render NumberOfEvents correctly', () => {
-    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
+    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(0);
   });
+
 
 describe('<App /> integration', () => {
   test('App passes "events" state as a prop to EventList', () => {

@@ -37,7 +37,7 @@ test('User can change the number of events they want to see', ({ given, when, th
     });
 
     when('a user has specified a number for the amount of events to view', () => {
-      AppWrapper.find('.eventNum').simulate('change', { target: { value: '1' } });
+      AppWrapper.find('.eventNum').simulate("change", { target: { value: '1' } });
     });
 
     then('only the specified number of events should load', () => {
